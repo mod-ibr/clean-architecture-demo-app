@@ -1,16 +1,5 @@
-# clean_architecture_demo_app
+# Clean architecture demo app
 
-A new Flutter project.
+* This is a clean architecture demo app. 
+* This app is State management independent, you can use any state management but I used Bloc here.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
