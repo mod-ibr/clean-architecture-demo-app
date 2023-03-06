@@ -15,7 +15,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 final sl = GetIt.instance;
 
-Future<void> init() async {
+Future<void> servicesLocator() async {
   //! Features - posts
 
   // Bloc

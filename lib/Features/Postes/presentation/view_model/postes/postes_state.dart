@@ -11,18 +11,18 @@ class PostesInitial extends PostesState {}
 
 class LoadingPostState extends PostesState {}
 
-class LoadedPostState extends PostesState {
+class SucceededLoadedPostState extends PostesState {
   final List<PostEntity> posts;
 
-  const LoadedPostState({required this.posts});
+  const SucceededLoadedPostState({required this.posts});
   @override
   List<Object> get props => [posts];
 }
 
-class MessageAddDeleteUpdatePostState extends PostesState {
+class SucceededAddDeleteUpdatePostState extends PostesState {
   final String message;
 
-  const MessageAddDeleteUpdatePostState({required this.message});
+  const SucceededAddDeleteUpdatePostState({required this.message});
   @override
   List<Object> get props => [message];
 }

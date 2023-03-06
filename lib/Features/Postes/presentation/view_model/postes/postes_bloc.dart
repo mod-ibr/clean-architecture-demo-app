@@ -32,7 +32,7 @@ class PostesBloc extends Bloc<PostesEvent, PostesState> {
         failureOrPostes.fold(
           (failure) =>
               emit(ErrorPostState(message: _mapFailureToMessage(failure))),
-          (posts) => emit(LoadedPostState(posts: posts)),
+          (posts) => emit(SucceededLoadedPostState(posts: posts)),
         );
       } else if (event is AddPostEvent) {
         emit(LoadingPostState());
@@ -63,7 +63,7 @@ class PostesBloc extends Bloc<PostesEvent, PostesState> {
       {required Either<Failure, Unit> either, required String message}) {
     return either.fold(
         (failure) => ErrorPostState(message: _mapFailureToMessage(failure)),
-        (_) => MessageAddDeleteUpdatePostState(message: message));
+        (_) => SucceededAddDeleteUpdatePostState(message: message));
   }
 
   String _mapFailureToMessage(Failure failure) {

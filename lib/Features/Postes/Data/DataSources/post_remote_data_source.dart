@@ -26,8 +26,7 @@ class PostRemoteDataSourceHttp implements PostRemoteDataSource {
       headers: {"Content-Type": "application/json"},
     );
     if (response.statusCode == 200) {
-      final List<Map<String, dynamic>> decodedPostes =
-          json.decode(response.body);
+      final List<dynamic> decodedPostes = json.decode(response.body);
 
       final List<PostModel> allPostes = decodedPostes
           .map<PostModel>((post) => PostModel.fromJson(post))
@@ -72,8 +71,7 @@ class PostRemoteDataSourceHttp implements PostRemoteDataSource {
       PostConstants.kTitle: postModel.title,
       PostConstants.kBody: postModel.body
     };
-    String updatePostURL =
-        '${PostConstants.kPostesBaseURL}/posts/$postId';
+    String updatePostURL = '${PostConstants.kPostesBaseURL}/posts/$postId';
     final response = await client.patch(Uri.parse(updatePostURL), body: body);
     if (response.statusCode == 200) {
       return Future.value(unit);
