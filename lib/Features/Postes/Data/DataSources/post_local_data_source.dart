@@ -32,10 +32,10 @@ class PostLocalDataSourceSharedPrefes implements PostLocalDataSource {
   Future<List<PostModel>> getCachedPosts() {
     final jsonString = sharedPreferences.getString(PostConstants.kCachedPostes);
     if (jsonString != null) {
-      List<Map<String, dynamic>> jsonToPostModel =
+      List<Map<String, dynamic>> jsonToList =
           json.encode(jsonString) as List<Map<String, dynamic>>;
 
-      List<PostModel> allCachedPostes = jsonToPostModel
+      List<PostModel> allCachedPostes = jsonToList
           .map<PostModel>((post) => PostModel.fromJson(post))
           .toList();
 

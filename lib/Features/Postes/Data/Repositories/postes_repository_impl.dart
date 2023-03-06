@@ -19,7 +19,7 @@ class PostesRepositoryImpl extends PostesRepository {
       required this.networkConnectionChecker});
 
   @override
-  Future<Either<Failure, List<Post>>> getAllPosts() async {
+  Future<Either<Failure, List<PostEntity>>> getAllPosts() async {
     if (await networkConnectionChecker.isConnected) {
       try {
         final List<PostModel> remotePostes =
@@ -43,7 +43,7 @@ class PostesRepositoryImpl extends PostesRepository {
   }
 
   @override
-  Future<Either<Failure, Unit>> addPost(Post post) async {
+  Future<Either<Failure, Unit>> addPost(PostEntity post) async {
     final PostModel postModel = PostModel(title: post.title, body: post.body);
     return await _doDeleteOrUpdateOrAddPost(
         () => postRemoteDataSource.addPost(postModel));
@@ -56,14 +56,14 @@ class PostesRepositoryImpl extends PostesRepository {
   }
 
   @override
-  Future<Either<Failure, Unit>> updatePost(Post post) async {
+  Future<Either<Failure, Unit>> updatePost(PostEntity post) async {
     final PostModel postModel = PostModel(title: post.title, body: post.title);
     return await _doDeleteOrUpdateOrAddPost(
         () => postRemoteDataSource.updatePoste(postModel));
   }
 
   Future<Either<Failure, Unit>> _doDeleteOrUpdateOrAddPost(
-      Function() deleteOrUpdateOrAddPost) async {
+     Future<Unit> Function() deleteOrUpdateOrAddPost) async {
     if (await networkConnectionChecker.isConnected) {
       try {
         await deleteOrUpdateOrAddPost();

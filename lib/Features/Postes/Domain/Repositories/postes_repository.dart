@@ -3,8 +3,8 @@ import 'package:clean_architecture_demo_app/Features/Postes/Domain/Entites/post_
 import 'package:dartz/dartz.dart';
 
 abstract class PostesRepository {
-  Future<Either<Failure, List<Post>>> getAllPosts();
+  Future<Either<Failure, List<PostEntity>>> getAllPosts();
   Future<Either<Failure, Unit>> deletePostById(int id);
-  Future<Either<Failure, Unit>> addPost(Post post);
-  Future<Either<Failure, Unit>> updatePost(Post post);
+  Future<Either<Failure, Unit>> addPost(PostEntity post);
+  Future<Either<Failure, Unit>> updatePost(PostEntity post);
 }

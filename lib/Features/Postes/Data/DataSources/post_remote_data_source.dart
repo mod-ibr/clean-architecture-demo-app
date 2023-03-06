@@ -73,7 +73,7 @@ class PostRemoteDataSourceHttp implements PostRemoteDataSource {
       PostConstants.kBody: postModel.body
     };
     String updatePostURL =
-        '${PostConstants.kPostesBaseURL}/posts/${postId.toString()}';
+        '${PostConstants.kPostesBaseURL}/posts/$postId';
     final response = await client.patch(Uri.parse(updatePostURL), body: body);
     if (response.statusCode == 200) {
       return Future.value(unit);

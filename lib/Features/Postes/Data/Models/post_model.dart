@@ -1,7 +1,7 @@
 import 'package:clean_architecture_demo_app/Core/Utils/Constants/post_constants.dart';
 import 'package:clean_architecture_demo_app/Features/Postes/Domain/Entites/post_entity.dart';
 
-class PostModel extends Post {
+class PostModel extends PostEntity {
   const PostModel({int? id, required String title, required String body})
       : super(id: id, body: body, title: title);
 
