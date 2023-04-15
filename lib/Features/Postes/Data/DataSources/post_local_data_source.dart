@@ -33,7 +33,7 @@ class PostLocalDataSourceSharedPrefes implements PostLocalDataSource {
     final jsonString = sharedPreferences.getString(PostConstants.kCachedPostes);
     if (jsonString != null) {
       List<Map<String, dynamic>> jsonToList =
-          json.encode(jsonString) as List<Map<String, dynamic>>;
+          json.decode(jsonString) as List<Map<String, dynamic>>;
 
       List<PostModel> allCachedPostes = jsonToList
           .map<PostModel>((post) => PostModel.fromJson(post))

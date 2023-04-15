@@ -7,8 +7,19 @@ import '../widgets/posts_page/message_display_widget.dart';
 import '../widgets/posts_page/post_list_widget.dart';
 import 'post_add_update_page.dart';
 
-class PostesHomePage extends StatelessWidget {
+class PostesHomePage extends StatefulWidget {
   const PostesHomePage({super.key});
+
+  @override
+  State<PostesHomePage> createState() => _PostesHomePageState();
+}
+
+class _PostesHomePageState extends State<PostesHomePage> {
+  @override
+  void initState() {
+    BlocProvider.of<PostesBloc>(context).add(GetAllPostesEvent());
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +31,7 @@ class PostesHomePage extends StatelessWidget {
   }
 
   AppBar _buildAppbar() => AppBar(title: const Text('Postes Home Page'));
+
   Widget _buildBody({required BuildContext context}) {
     return Padding(
       padding: const EdgeInsets.all(10),

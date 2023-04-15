@@ -17,8 +17,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
         providers: [
-          BlocProvider<PostesBloc>(
-              create: (_) => di.sl<PostesBloc>()..add(GetAllPostesEvent())),
+          BlocProvider<PostesBloc>(create: (_) => di.sl<PostesBloc>()
+              // ..add(
+              //   GetAllPostesEvent(),
+              // ),
+              ),
         ],
         child: const MaterialApp(
           title: 'Flutter Clean Architecture Demo App',

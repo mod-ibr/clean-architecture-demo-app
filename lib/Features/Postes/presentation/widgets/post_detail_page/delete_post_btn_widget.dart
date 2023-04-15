@@ -31,8 +31,7 @@ class DeletePostBtnWidget extends StatelessWidget {
     showDialog(
         context: context,
         builder: (context) {
-          return BlocConsumer<PostesBloc,
-              PostesState>(
+          return BlocConsumer<PostesBloc, PostesState>(
             listener: (context, state) {
               if (state is SucceededAddDeleteUpdatePostState) {
                 SnackBarMessage().showSuccessSnackBar(
